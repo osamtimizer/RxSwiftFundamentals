@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MainViewController: UIViewController {
+  @IBOutlet weak var transitonButton: UIButton!
+  private let viewModel = MainViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+
+    transitonButton.rx.tap
+      .subscribe (onNext: { _ in
+        print("tapped")
+      })
   }
-
-
 }
 
