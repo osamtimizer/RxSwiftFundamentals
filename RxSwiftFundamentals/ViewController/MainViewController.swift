@@ -19,10 +19,12 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
 
+    // input
     transitonButton.rx.tap
       .bind(to: viewModel.onTapTransitionButton)
       .disposed(by: disposeBag)
 
+    // output
     viewModel.showSub1View
       .subscribe(onNext: { [weak self] _ in
         self?.performSegue(withIdentifier: "toSub1", sender: nil)
