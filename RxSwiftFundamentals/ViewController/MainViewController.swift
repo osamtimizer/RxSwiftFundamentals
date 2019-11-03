@@ -19,7 +19,6 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
 
-
     transitonButton.rx.tap
       .bind(to: viewModel.onTapTransitionButton)
       .disposed(by: disposeBag)
@@ -29,6 +28,8 @@ class MainViewController: UIViewController {
         self?.performSegue(withIdentifier: "toSub1", sender: nil)
       })
       .disposed(by: disposeBag)
+
+    viewModel.viewDidLoad.accept(())
   }
 }
 
