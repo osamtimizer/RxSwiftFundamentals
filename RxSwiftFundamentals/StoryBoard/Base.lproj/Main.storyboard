@@ -14,13 +14,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkP-ti-p1L" userLabel="Transition Button">
+                                <rect key="frame" x="191" y="433" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmA-xp-gCU" userLabel="Login Button">
+                                <rect key="frame" x="188" y="60" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxu-sT-YXR" userLabel="Welcome Label">
+                                <rect key="frame" x="108" y="98" width="198" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Logged in.
+Welcome back, customer.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-2i-TwZ" userLabel="Logout Button">
+                                <rect key="frame" x="183" y="147" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="oxu-sT-YXR" id="C7p-8J-fip"/>
+                        <outlet property="loginButton" destination="JmA-xp-gCU" id="IyB-DZ-aD9"/>
+                        <outlet property="logoutButton" destination="ZTz-2i-TwZ" id="GlG-L8-lw6"/>
+                        <outlet property="transitonButton" destination="YkP-ti-p1L" id="jVU-oF-3fR"/>
+                        <segue destination="CLP-kn-ygY" kind="presentation" identifier="toSub1" id="Bti-jk-apU"/>
+                        <segue destination="Diu-fs-a6L" kind="presentation" identifier="toLogin" id="gQV-b4-DBL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="121"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="k6q-Ga-WvC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="Diu-fs-a6L" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iNF-DR-mE4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVY-w7-xog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="-56"/>
+        </scene>
+        <!--Sub1-->
+        <scene sceneID="blU-n5-dZe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Sub1" id="CLP-kn-ygY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rLi-OQ-VIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="6"/>
         </scene>
     </scenes>
 </document>
