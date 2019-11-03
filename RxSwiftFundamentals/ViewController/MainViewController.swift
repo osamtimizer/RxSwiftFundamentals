@@ -13,15 +13,22 @@ import RxCocoa
 class MainViewController: UIViewController {
   @IBOutlet weak var transitonButton: UIButton!
   private let viewModel = MainViewModel()
+  private let disposeBag = DisposeBag()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
 
+
     transitonButton.rx.tap
-      .subscribe (onNext: { _ in
-        print("tapped")
+      .bind(to: viewModel.onTapTransitionButton)
+      .disposed(by: disposeBag)
+
+    viewModel.showSub1View
+      .subscribe(onNext: { [weak self] _ in
+        self?.performSegue(withIdentifier: "toSub1", sender: nil)
       })
+      .disposed(by: disposeBag)
   }
 }
 

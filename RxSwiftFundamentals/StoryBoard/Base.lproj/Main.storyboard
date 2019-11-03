@@ -26,11 +26,20 @@
                     </view>
                     <connections>
                         <outlet property="transitonButton" destination="YkP-ti-p1L" id="jVU-oF-3fR"/>
+                        <segue destination="CLP-kn-ygY" kind="presentation" identifier="toSub1" id="Bti-jk-apU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="121"/>
+        </scene>
+        <!--Sub1-->
+        <scene sceneID="blU-n5-dZe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Sub1" id="CLP-kn-ygY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rLi-OQ-VIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="6"/>
         </scene>
     </scenes>
 </document>
