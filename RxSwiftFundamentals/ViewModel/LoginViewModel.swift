@@ -31,6 +31,8 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
   public let password = PublishRelay<String>()
 
   // output
+  public let showWarningLabel = PublishRelay<Void>()
+  public let hideWarningLabel = PublishRelay<Void>()
   public let dismiss = PublishRelay<Void>()
 
   init(store: Store = Store.singleton) {
@@ -41,6 +43,12 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
     onTapSubmitLoginButton.withLatestFrom(loginParams)
       .flatMap { (username, password) in
         LoginAction.tryLogin(username: username, password: password)
+    }
+    .map { [weak self] result in
+      if result == false {
+        self?.showWarningLabel.accept(())
+      }
+      return result
     }
     .bind(to: store.login)
     .disposed(by: disposeBag)

@@ -34,6 +34,12 @@ public final class LoginViewController: UIViewController {
       .bind(to: viewModel.onTapSubmitLoginButton)
       .disposed(by: disposeBag)
 
+    viewModel.showWarningLabel
+      .subscribe({[weak self] _ in
+        self?.warningLabel.isHidden = false
+      })
+      .disposed(by: disposeBag)
+    
     viewModel.dismiss
       .subscribe(onNext: { [weak self] _ in
         self?.dismiss(animated: true, completion: nil)
