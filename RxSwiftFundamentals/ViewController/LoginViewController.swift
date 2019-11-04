@@ -39,10 +39,8 @@ public final class LoginViewController: UIViewController {
       .bind(to: viewModel.onTapBackButton)
       .disposed(by: disposeBag)
 
-    viewModel.showWarningLabel
-      .subscribe({[weak self] _ in
-        self?.warningLabel.isHidden = false
-      })
+    viewModel.isHiddenWarningLabel
+      .bind(to: warningLabel.rx.isHidden)
       .disposed(by: disposeBag)
     
     viewModel.dismiss

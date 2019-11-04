@@ -18,6 +18,9 @@ public protocol MainViewModelInput {
 }
 
 public protocol MainViewModelOutput {
+  var isHiddenDescriptionLabel: PublishRelay<Bool> { get }
+  var isHiddenLoginButton: PublishRelay<Bool> { get }
+  var isHiddenLogoutButton: PublishRelay<Bool> { get }
   var showDescriptionLabel: PublishRelay<Void> { get }
   var hideDescriptionLabel: PublishRelay<Void> { get }
   var showLoginButton: PublishRelay<Void> { get }
@@ -37,6 +40,9 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
   public let onTapLogoutButton = PublishRelay<Void>()
 
   // output
+  public let isHiddenLoginButton = PublishRelay<Bool>()
+  public let isHiddenLogoutButton = PublishRelay<Bool>()
+  public let isHiddenDescriptionLabel = PublishRelay<Bool>()
   public let showDescriptionLabel = PublishRelay<Void>()
   public let hideDescriptionLabel = PublishRelay<Void>()
   public let showLoginButton = PublishRelay<Void>()
@@ -54,18 +60,18 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
     store.login
       .filter {$0 == true}
       .subscribe(onNext: { [weak self] _ in
-        self?.hideLoginButton.accept(())
-        self?.showDescriptionLabel.accept(())
-        self?.showLogoutButton.accept(())
+        self?.isHiddenLoginButton.accept(true)
+        self?.isHiddenLogoutButton.accept(false)
+        self?.isHiddenDescriptionLabel.accept(false)
       })
       .disposed(by: disposeBag)
 
     store.login
       .filter {$0 == false}
       .subscribe(onNext: { [weak self] _ in
-        self?.showLoginButton.accept(())
-        self?.hideLogoutButton.accept(())
-        self?.hideDescriptionLabel.accept(())
+        self?.isHiddenLoginButton.accept(false)
+        self?.isHiddenLogoutButton.accept(true)
+        self?.isHiddenDescriptionLabel.accept(true)
       })
       .disposed(by: disposeBag)
 

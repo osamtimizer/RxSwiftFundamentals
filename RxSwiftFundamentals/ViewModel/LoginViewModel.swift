@@ -19,8 +19,7 @@ public protocol LoginViewModelInput {
 }
 
 public protocol LoginViewModelOutput {
-  var showWarningLabel: PublishRelay<Void> { get }
-  var hideWarningLabel: PublishRelay<Void> { get }
+  var isHiddenWarningLabel: PublishRelay<Bool> { get }
   var dismiss: PublishRelay<Void> { get }
 }
 
@@ -35,8 +34,7 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
   public let password = PublishRelay<String>()
 
   // output
-  public let showWarningLabel = PublishRelay<Void>()
-  public let hideWarningLabel = PublishRelay<Void>()
+  public let isHiddenWarningLabel = PublishRelay<Bool>()
   public let dismiss = PublishRelay<Void>()
 
   init(store: Store = Store.singleton) {
@@ -47,12 +45,6 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
     onTapSubmitLoginButton.withLatestFrom(loginParams)
       .flatMap { (username, password) in
         LoginAction.tryLogin(username: username, password: password)
-    }
-    .map { [weak self] result in
-      if result == false {
-        self?.showWarningLabel.accept(())
-      }
-      return result
     }
     .bind(to: store.login)
     .disposed(by: disposeBag)
@@ -74,5 +66,10 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
       .bind(to: dismiss)
       .disposed(by: disposeBag)
 
+    store.login.filter { $0 == false }
+      .subscribe({[weak self] _ in
+        self?.isHiddenWarningLabel.accept(false)
+      })
+      .disposed(by: disposeBag)
   }
 }

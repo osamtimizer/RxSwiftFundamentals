@@ -50,40 +50,16 @@ class MainViewController: UIViewController {
       })
       .disposed(by: disposeBag)
 
-    viewModel.showLoginButton
-      .subscribe({ [weak self] _ in
-        self?.loginButton.isHidden = false
-      })
+    viewModel.isHiddenLoginButton
+      .bind(to: loginButton.rx.isHidden)
       .disposed(by: disposeBag)
 
-    viewModel.hideLoginButton
-      .subscribe({ [weak self] _ in
-        self?.loginButton.isHidden = true
-      })
+    viewModel.isHiddenDescriptionLabel
+      .bind(to: descriptionLabel.rx.isHidden)
       .disposed(by: disposeBag)
 
-    viewModel.showDescriptionLabel
-      .subscribe({[weak self] _ in
-        self?.descriptionLabel.isHidden = false
-      })
-      .disposed(by: disposeBag)
-
-    viewModel.hideDescriptionLabel
-      .subscribe({[weak self] _ in
-        self?.descriptionLabel.isHidden = true
-      })
-      .disposed(by: disposeBag)
-
-    viewModel.showLogoutButton
-      .subscribe({[weak self] _ in
-        self?.logoutButton.isHidden = false
-      })
-      .disposed(by: disposeBag)
-
-    viewModel.hideLogoutButton
-      .subscribe({[weak self] _ in
-        self?.logoutButton.isHidden = true
-      })
+    viewModel.isHiddenLogoutButton
+      .bind(to: logoutButton.rx.isHidden)
       .disposed(by: disposeBag)
 
     viewModel.updateDescription
