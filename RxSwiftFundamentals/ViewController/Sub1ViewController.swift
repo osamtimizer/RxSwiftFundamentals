@@ -28,6 +28,7 @@ public final class Sub1ViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
 
+    // input
     loginButton.rx.tap
       .bind(to: viewModel.onTapLoginbutton)
       .disposed(by: disposeBag)
@@ -36,6 +37,7 @@ public final class Sub1ViewController: UIViewController {
       .bind(to: viewModel.onTapBackButton)
       .disposed(by: disposeBag)
 
+    // output
     viewModel.isHiddenContents
       .bind(to: notLoggedInDescriptionLabel.rx.isHidden)
       .disposed(by: disposeBag)

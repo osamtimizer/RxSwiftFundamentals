@@ -13,6 +13,8 @@ import RxCocoa
 public final class LoginAction {
   public static func tryLogin(store: Store = Store.singleton, username: String, password: String) -> Single<Bool> {
     return Single.create { event in
+
+      // In production, send actual request to some API on your service.
       if username == "username" && password == "password" {
         store.login.accept(true)
         event(.success(true))

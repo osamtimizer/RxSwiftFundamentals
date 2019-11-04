@@ -14,6 +14,7 @@ public final class UserAction {
   public static func fetchUserInfo(store: Store = Store.singleton, username: String) -> Completable {
     return Completable.create { event in
 
+      // In production, send actual request to some API on your service.
       if username == "" {
         event(.error(UserActionError()))
       } else if username == "username" {

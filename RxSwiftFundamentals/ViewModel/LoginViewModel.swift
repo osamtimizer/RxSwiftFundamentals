@@ -42,6 +42,7 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
       (username, password)
     }
 
+    // input
     onTapSubmitLoginButton.withLatestFrom(loginParams)
       .flatMap { (username, password) in
         LoginAction.tryLogin(username: username, password: password)
@@ -53,6 +54,7 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
       .bind(to: dismiss)
       .disposed(by: disposeBag)
 
+    // store
     store.login.filter { $0 == true }
     .withLatestFrom(username)
       .flatMap { username in

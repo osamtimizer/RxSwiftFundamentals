@@ -57,6 +57,22 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
 
   init(store: Store = Store.singleton) {
 
+    // input
+    onTapTransitionButton
+      .bind(to: showSub1View)
+      .disposed(by: disposeBag)
+
+    onTapLoginButton
+      .withLatestFrom(store.login).filter { login in login == false }
+      .map { _ in }
+      .bind(to: showLoginView)
+      .disposed(by: disposeBag)
+
+    onTapLogoutButton.map{ _ in false}
+      .bind(to: store.login)
+    .disposed(by: disposeBag)
+
+    // store
     store.login
       .filter {$0 == true}
       .subscribe(onNext: { [weak self] _ in
@@ -82,20 +98,6 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
         return String("Welcome back, \(username).")
     }
     .bind(to: updateDescription)
-    .disposed(by: disposeBag)
-
-    onTapTransitionButton
-      .bind(to: showSub1View)
-      .disposed(by: disposeBag)
-
-    onTapLoginButton
-      .withLatestFrom(store.login).filter { login in login == false }
-      .map { _ in }
-      .bind(to: showLoginView)
-      .disposed(by: disposeBag)
-
-    onTapLogoutButton.map{ _ in false}
-      .bind(to: store.login)
     .disposed(by: disposeBag)
   }
 }

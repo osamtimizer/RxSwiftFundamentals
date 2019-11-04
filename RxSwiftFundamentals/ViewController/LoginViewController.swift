@@ -23,6 +23,7 @@ public final class LoginViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
 
+    // input
     usernameTextField.rx.text.orEmpty
       .bind(to: viewModel.username)
       .disposed(by: disposeBag)
@@ -39,6 +40,7 @@ public final class LoginViewController: UIViewController {
       .bind(to: viewModel.onTapBackButton)
       .disposed(by: disposeBag)
 
+    // output
     viewModel.isHiddenWarningLabel
       .bind(to: warningLabel.rx.isHidden)
       .disposed(by: disposeBag)

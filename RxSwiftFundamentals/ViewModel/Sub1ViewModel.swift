@@ -49,6 +49,19 @@ public final class Sub1ViewModel: Sub1ViewModelInput, Sub1ViewModelOutput {
   private let disposeBag = DisposeBag()
 
   init(store: Store = Store.singleton) {
+
+    // input
+    onTapLoginbutton
+      .withLatestFrom(store.login).filter { $0 != true }
+      .map { _ in }
+      .bind(to: showLoginView)
+      .disposed(by: disposeBag)
+
+    onTapBackButton
+      .bind(to: dismiss)
+      .disposed(by: disposeBag)
+
+    // store
     store.login.filter { $0 == true }
       .subscribe({ [weak self] _ in
         self?.isHiddenContents.accept(true)
@@ -81,16 +94,6 @@ public final class Sub1ViewModel: Sub1ViewModelInput, Sub1ViewModelOutput {
       .flatMap(Observable.from(optional:))
       .map { count in String(count) }
       .bind(to: followerCount)
-      .disposed(by: disposeBag)
-
-    onTapLoginbutton
-      .withLatestFrom(store.login).filter { $0 != true }
-      .map { _ in }
-      .bind(to: showLoginView)
-      .disposed(by: disposeBag)
-
-    onTapBackButton
-      .bind(to: dismiss)
       .disposed(by: disposeBag)
   }
 }
