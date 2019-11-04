@@ -15,31 +15,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To show your favorite contents, you need to login." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7c-Sn-XMo" userLabel="Not Logged In Description Label">
-                                <rect key="frame" x="78" y="419" width="258" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVN-Da-uq2" userLabel="Login Button">
+                                <rect key="frame" x="188" y="56" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-Ol-U5U" userLabel="Back Button">
+                                <rect key="frame" x="33" y="51" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="BwV-TU-34y"/>
+                                </constraints>
+                                <state key="normal" image="arrow.left" catalog="system"/>
+                            </button>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5vF-wt-4t7" userLabel="User Info Stack View">
+                                <rect key="frame" x="32" y="251" width="350" height="102.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h68-2F-llS" userLabel="User Info Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPa-B9-JvN">
+                                        <rect key="frame" x="0.0" y="20.5" width="350" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2V-ws-T20" userLabel="Email Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUL-jV-1IG" userLabel="Email Label">
+                                                <rect key="frame" x="308" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="220" translatesAutoresizingMaskIntoConstraints="NO" id="So6-Kg-Y9w">
+                                        <rect key="frame" x="0.0" y="41" width="350" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-gs-oSN" userLabel="Name Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHg-S5-f8U" userLabel="Name Label">
+                                                <rect key="frame" x="308" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVC-kV-gJN">
+                                        <rect key="frame" x="0.0" y="61.5" width="350" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Followee Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ1-pc-ZYn" userLabel="Followee Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0l-ra-Heg" userLabel="Followee Label">
+                                                <rect key="frame" x="308" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Big-kO-YtR">
+                                        <rect key="frame" x="0.0" y="82" width="350" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Follower Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBq-Ye-gn9" userLabel="Follower Description Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="308" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kb-K8-mTf" userLabel="Follower Label">
+                                                <rect key="frame" x="308" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="e0U-ae-mpF"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7c-Sn-XMo" userLabel="Not Logged In Description Label">
+                                <rect key="frame" x="109" y="533" width="177.5" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="4fW-YN-wTv"/>
+                                </constraints>
+                                <string key="text">To show your contents,
+you need to login.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVN-Da-uq2" userLabel="Login Button">
-                                <rect key="frame" x="188" y="56" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-Ol-U5U" userLabel="Back Button">
-                                <rect key="frame" x="33" y="51" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="lessthan.circle" catalog="system"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tVN-Da-uq2" firstAttribute="centerX" secondItem="1UJ-zu-ZUC" secondAttribute="centerX" id="7sl-NX-GHJ"/>
+                            <constraint firstItem="5vF-wt-4t7" firstAttribute="centerX" secondItem="qMw-hE-NbN" secondAttribute="centerX" id="BLB-07-UNs"/>
+                            <constraint firstItem="tVN-Da-uq2" firstAttribute="top" secondItem="qMw-hE-NbN" secondAttribute="top" constant="12" id="CNa-XF-X1d"/>
+                            <constraint firstItem="mRd-Ol-U5U" firstAttribute="centerY" secondItem="tVN-Da-uq2" secondAttribute="centerY" id="S6f-mZ-alR"/>
+                            <constraint firstItem="n7c-Sn-XMo" firstAttribute="leading" secondItem="qMw-hE-NbN" secondAttribute="leading" constant="109" id="U99-wZ-nzH"/>
+                            <constraint firstItem="5vF-wt-4t7" firstAttribute="top" secondItem="1UJ-zu-ZUC" secondAttribute="top" constant="251" id="XTO-1r-bss"/>
+                            <constraint firstItem="qMw-hE-NbN" firstAttribute="bottom" secondItem="n7c-Sn-XMo" secondAttribute="bottom" constant="271" id="kQz-IU-u0j"/>
+                            <constraint firstItem="mRd-Ol-U5U" firstAttribute="top" secondItem="qMw-hE-NbN" secondAttribute="top" constant="7" id="nXM-nd-eV1"/>
+                            <constraint firstItem="mRd-Ol-U5U" firstAttribute="leading" secondItem="qMw-hE-NbN" secondAttribute="leading" constant="33" id="zN4-ih-UTk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qMw-hE-NbN"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="mRd-Ol-U5U" id="tmJ-If-UVg"/>
+                        <outlet property="emailLabel" destination="FUL-jV-1IG" id="6yN-u2-zUx"/>
+                        <outlet property="followeeLabel" destination="b0l-ra-Heg" id="xj9-V1-nkd"/>
+                        <outlet property="followerLabel" destination="9kb-K8-mTf" id="Zh4-xg-XQS"/>
                         <outlet property="loginButton" destination="tVN-Da-uq2" id="JE9-9r-3d8"/>
+                        <outlet property="nameLabel" destination="wHg-S5-f8U" id="9kR-SN-gCw"/>
                         <outlet property="notLoggedInDescriptionLabel" destination="n7c-Sn-XMo" id="7jx-rh-7XR"/>
+                        <outlet property="userInfoStackView" destination="5vF-wt-4t7" id="Njz-rD-XqZ"/>
                         <segue destination="pFz-Y2-Hd5" kind="presentation" identifier="toLogin" id="FxV-eF-vjc"/>
                     </connections>
                 </viewController>
@@ -57,6 +160,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lessthan.circle" catalog="system" width="64" height="60"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
     </resources>
 </document>

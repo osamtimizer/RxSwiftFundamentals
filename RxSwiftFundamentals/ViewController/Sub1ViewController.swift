@@ -14,6 +14,13 @@ public final class Sub1ViewController: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var notLoggedInDescriptionLabel: UILabel!
   @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var userInfoStackView: UIStackView!
+  @IBOutlet weak var emailLabel: UILabel!
+  @IBOutlet weak var nameLabel: UILabel!
+  
+  @IBOutlet weak var followeeLabel: UILabel!
+  @IBOutlet weak var followerLabel: UILabel!
+  
 
   private let viewModel = Sub1ViewModel()
   private let disposeBag = DisposeBag()
@@ -35,6 +42,26 @@ public final class Sub1ViewController: UIViewController {
 
     viewModel.isHiddenLoginButton
       .bind(to: loginButton.rx.isHidden)
+      .disposed(by: disposeBag)
+
+    viewModel.isHiddenLoginContents
+      .bind(to: userInfoStackView.rx.isHidden)
+      .disposed(by: disposeBag)
+
+    viewModel.email
+      .bind(to: emailLabel.rx.text)
+      .disposed(by: disposeBag)
+
+    viewModel.username
+      .bind(to: nameLabel.rx.text)
+      .disposed(by: disposeBag)
+
+    viewModel.followeeCount
+      .bind(to: followeeLabel.rx.text)
+      .disposed(by: disposeBag)
+
+    viewModel.followerCount
+      .bind(to: followerLabel.rx.text)
       .disposed(by: disposeBag)
 
     viewModel.dismiss

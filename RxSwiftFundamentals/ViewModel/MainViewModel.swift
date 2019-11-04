@@ -69,7 +69,9 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
       })
       .disposed(by: disposeBag)
 
-    store.username.filter { !$0.isEmpty }
+    store.username
+      .flatMap(Observable.from(optional:))
+      .filter { !$0.isEmpty }
       .map { username in
         return String("Welcome back, \(username).")
     }

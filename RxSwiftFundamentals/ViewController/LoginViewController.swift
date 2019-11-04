@@ -15,7 +15,8 @@ public final class LoginViewController: UIViewController {
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var submitLoginButton: UIButton!
-
+  @IBOutlet weak var backButton: UIButton!
+  
   private let viewModel = LoginViewModel()
   private let disposeBag = DisposeBag()
 
@@ -32,6 +33,10 @@ public final class LoginViewController: UIViewController {
 
     submitLoginButton.rx.tap
       .bind(to: viewModel.onTapSubmitLoginButton)
+      .disposed(by: disposeBag)
+
+    backButton.rx.tap
+      .bind(to: viewModel.onTapBackButton)
       .disposed(by: disposeBag)
 
     viewModel.showWarningLabel

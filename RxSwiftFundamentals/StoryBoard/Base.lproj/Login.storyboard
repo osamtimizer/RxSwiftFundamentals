@@ -53,11 +53,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owc-LZ-ckT" userLabel="Back Button">
+                                <rect key="frame" x="18" y="48" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrow.left" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RnJ-fE-QDC"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Owc-LZ-ckT" id="wDk-lD-u4y"/>
                         <outlet property="passwordTextField" destination="9sm-Sn-M3f" id="ia2-wH-MXO"/>
                         <outlet property="submitLoginButton" destination="9Jx-iL-Oi7" id="181-Rb-l0f"/>
                         <outlet property="usernameTextField" destination="Vxf-1c-Si3" id="X1D-Jz-mIe"/>
@@ -69,4 +75,7 @@
             <point key="canvasLocation" x="47.826086956521742" y="72.991071428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+    </resources>
 </document>

@@ -15,7 +15,6 @@ public final class LoginAction {
     return Single.create { event in
       if username == "username" && password == "password" {
         store.login.accept(true)
-        store.username.accept(username)
         event(.success(true))
       } else {
         event(.success(false))

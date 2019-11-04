@@ -13,6 +13,7 @@ import RxCocoa
 public protocol LoginViewModelInput {
   var viewDidLoad: PublishRelay<Void> { get }
   var onTapSubmitLoginButton: PublishRelay<Void> { get }
+  var onTapBackButton: PublishRelay<Void> { get }
   var username: PublishRelay<String> { get }
   var password: PublishRelay<String> { get }
 }
@@ -29,6 +30,7 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
   // input
   public let viewDidLoad = PublishRelay<Void>()
   public let onTapSubmitLoginButton = PublishRelay<Void>()
+  public let onTapBackButton = PublishRelay<Void>()
   public let username = PublishRelay<String>()
   public let password = PublishRelay<String>()
 
@@ -55,10 +57,21 @@ public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {
     .bind(to: store.login)
     .disposed(by: disposeBag)
 
+    onTapBackButton
+      .bind(to: dismiss)
+      .disposed(by: disposeBag)
+
     store.login.filter { $0 == true }
-      .subscribe({[weak self] _ in
-        self?.dismiss.accept(())
-      })
+    .withLatestFrom(username)
+      .flatMap { username in
+        UserAction.fetchUserInfo(username: username)
+    }
+      .subscribe()
+      .disposed(by: disposeBag)
+
+    store.login.filter { $0 == true }
+      .map { _ in }
+      .bind(to: dismiss)
       .disposed(by: disposeBag)
 
   }

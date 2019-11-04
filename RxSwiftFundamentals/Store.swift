@@ -14,7 +14,10 @@ public final class Store {
 
   public static let singleton = Store()
   public let login = BehaviorRelay<Bool>(value: false)
-  public let username = BehaviorRelay<String>(value: "")
+  public let username = BehaviorRelay<String?>(value: "")
+  public let email = BehaviorRelay<String?>(value: "")
+  public let followeeCount = BehaviorRelay<Int?>(value: 0)
+  public let followerCount = BehaviorRelay<Int?>(value: 0)
 
   init() {
   }
