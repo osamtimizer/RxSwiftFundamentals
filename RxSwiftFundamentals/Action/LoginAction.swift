@@ -16,6 +16,9 @@ public final class LoginAction {
       if username == "username" && password == "password" {
         store.login.accept(true)
         event(.success(true))
+      } else if username == "hoge" && password == "fuga" {
+        store.login.accept(true)
+        event(.success(true))
       } else {
         event(.success(false))
       }

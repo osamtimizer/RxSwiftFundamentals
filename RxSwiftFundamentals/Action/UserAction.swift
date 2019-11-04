@@ -16,12 +16,19 @@ public final class UserAction {
 
       if username == "" {
         event(.error(UserActionError()))
-      } else {
+      } else if username == "username" {
         store.email.accept("username@example.com")
         store.username.accept(username)
         store.followeeCount.accept(100)
         store.followerCount.accept(200)
         event(.completed)
+      } else {
+        store.email.accept("hoge@example.com")
+        store.username.accept("hoge user")
+        store.followeeCount.accept(9999)
+        store.followerCount.accept(9999)
+        event(.completed)
+
       }
 
       return Disposables.create{}
