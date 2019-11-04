@@ -26,6 +26,7 @@ public protocol MainViewModelOutput {
   var hideLogoutButton: PublishRelay<Void> { get }
   var showSub1View: PublishRelay<Void> { get }
   var showLoginView: PublishRelay<Void> { get }
+  var updateDescription: PublishRelay<String> { get }
 }
 
 public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
@@ -44,6 +45,7 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
   public let hideLogoutButton = PublishRelay<Void>()
   public let showSub1View = PublishRelay<Void>()
   public let showLoginView = PublishRelay<Void>()
+  public let updateDescription = PublishRelay<String>()
 
   private let disposeBag = DisposeBag()
 
@@ -66,6 +68,13 @@ public final class MainViewModel: MainViewModelInput, MainViewModelOutput {
         self?.hideDescriptionLabel.accept(())
       })
       .disposed(by: disposeBag)
+
+    store.username.filter { !$0.isEmpty }
+      .map { username in
+        return String("Welcome back, \(username).")
+    }
+    .bind(to: updateDescription)
+    .disposed(by: disposeBag)
 
     onTapTransitionButton
       .bind(to: showSub1View)

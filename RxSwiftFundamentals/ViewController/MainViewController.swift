@@ -86,6 +86,9 @@ class MainViewController: UIViewController {
       })
       .disposed(by: disposeBag)
 
+    viewModel.updateDescription
+      .bind(to: descriptionLabel.rx.text)
+      .disposed(by: disposeBag)
 
     viewModel.viewDidLoad.accept(())
   }

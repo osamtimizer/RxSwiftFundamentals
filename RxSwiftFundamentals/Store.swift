@@ -14,6 +14,7 @@ public final class Store {
 
   public static let singleton = Store()
   public let login = BehaviorRelay<Bool>(value: false)
+  public let username = BehaviorRelay<String>(value: "")
 
   init() {
   }
