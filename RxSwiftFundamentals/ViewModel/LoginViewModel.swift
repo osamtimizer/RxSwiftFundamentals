@@ -18,7 +18,9 @@ public protocol LoginViewModelInput {
 }
 
 public protocol LoginViewModelOutput {
-
+  var showWarningLabel: PublishRelay<Void> { get }
+  var hideWarningLabel: PublishRelay<Void> { get }
+  var dismiss: PublishRelay<Void> { get }
 }
 
 public final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput {

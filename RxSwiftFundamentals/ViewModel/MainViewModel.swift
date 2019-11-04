@@ -14,9 +14,16 @@ public protocol MainViewModelInput {
   var viewDidLoad: PublishRelay<Void> { get }
   var onTapTransitionButton: PublishRelay<Void> { get }
   var onTapLoginButton: PublishRelay<Void> { get }
+  var onTapLogoutButton: PublishRelay<Void> { get }
 }
 
 public protocol MainViewModelOutput {
+  var showDescriptionLabel: PublishRelay<Void> { get }
+  var hideDescriptionLabel: PublishRelay<Void> { get }
+  var showLoginButton: PublishRelay<Void> { get }
+  var hideLoginButton: PublishRelay<Void> { get }
+  var showLogoutButton: PublishRelay<Void> { get }
+  var hideLogoutButton: PublishRelay<Void> { get }
   var showSub1View: PublishRelay<Void> { get }
   var showLoginView: PublishRelay<Void> { get }
 }
