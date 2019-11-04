@@ -12,7 +12,16 @@ If you want to try, please follow the **usage** section.
 
 ## usage
 
+### clone
+
 ```
+$ git clone git@github.com:osamtimizer/RxSwiftFundamentals.git
+```
+
+### install dependencies
+
+```
+$ cd RxSwiftFundamentals
 $ bundle install
 $ bundle exec pod install
 ```
