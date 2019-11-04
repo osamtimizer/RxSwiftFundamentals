@@ -18,3 +18,19 @@ $ bundle exec pod install
 ```
 
 After that, launch XCode and open `.xcworkspace` file.
+
+### In App
+
+You can login using the following users.
+
+#### user1: username
+```
+username: username
+password: password
+```
+
+#### user2: hoge user
+```
+username: hoge
+password: fuga
+```
