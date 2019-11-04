@@ -5,8 +5,8 @@ This project contains some sample codes of RxSwift Fundamental functions.
 It helps you to understand how to:
 
 - install RxSwift in your project
-- Write MVVM code in Swift
-- Create userful Observables
+- Write MVVM code in Swift with RxSwift
+- Create userful Observables, and manage Sequences
 
 If you want to try, please follow the **usage** section.
 
