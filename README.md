@@ -10,15 +10,23 @@ It helps you to understand how to:
 
 If you want to try, please follow the **usage** section.
 
-## usage
+## Usage
 
-### clone
+### Author's Environment
+
+- MacOS: 10.14.5
+- Xcode: 11.1
+- Swift: 5.1
+- Ruby: 2.6.5
+- Bundler: 1.17.2
+
+### Clone
 
 ```
 $ git clone git@github.com:osamtimizer/RxSwiftFundamentals.git
 ```
 
-### install dependencies
+### Install dependencies
 
 ```
 $ cd RxSwiftFundamentals
@@ -32,13 +40,13 @@ After that, launch XCode and open `.xcworkspace` file.
 
 You can login using the following users.
 
-#### user1: username
+#### User1: username
 ```
 username: username
 password: password
 ```
 
-#### user2: hoge user
+#### User2: hoge user
 ```
 username: hoge
 password: fuga
